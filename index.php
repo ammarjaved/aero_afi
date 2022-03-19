@@ -40,6 +40,8 @@ else {
     <script src="lib/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
     <script type="text/javascript" src="scripts/turf.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
 	
 <link rel="stylesheet" href="css/main.css">
@@ -49,7 +51,12 @@ else {
         var user_id='<?php echo $_SESSION['user_id'];?>'
         //alert(user_id)
     </script>
-
+<style>
+        #panorama {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
 </head>
 <!-- onload="setTimeout(function() { document.myForm.submit() }, 5000)" -->
 <body onload="hidedragable()">
@@ -252,7 +259,7 @@ else {
 
 
            
-			<div id="map">
+			<div id="map" style="z-index:1;">
 			
 				<!-- <div style="z-index: 1000000;position: absolute;padding-left: 1px;padding-top: 200px;"  >
 						<div class="col-md-2">
@@ -440,7 +447,13 @@ else {
 																</tbody>
 				</table>
 			</div>
+ <div id="wg" class="windowGroup">
 
+        </div>
+
+        <div id="wg1" class="windowGroup">
+
+        </div>
 						
 							
 			
@@ -454,6 +467,8 @@ else {
 <script src="scripts/main.js"></script>
 <script src="scripts/style.js"></script>
 <script src="scripts/typeahead.min.js"></script>
+<link rel="stylesheet" href="lib/window-engine.css" />
+ <script src="lib/window-engine.js"></script>
 
 </body>
 </html>
