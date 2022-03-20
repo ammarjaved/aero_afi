@@ -4,6 +4,7 @@ var drawnItems
 var baseLayers;
 var dp;
 var dp2;
+var dp3;
 var customer;
 var p_id='';
 var line_feature='null';
@@ -234,6 +235,15 @@ $(document).ready(function() {
             transparent: true
         });
         dp2.addTo(map);
+
+        dp3 = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/cite/wms", {
+            layers: 'cite:dp_customer_new_22',
+            format: 'image/png',
+            maxZoom: 20,
+            transparent: true
+        });
+        dp3.addTo(map);
+
 		pano_layer = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/cite/wms", {
         layers: 'cite:pano_afi',
         format: 'image/png',
@@ -423,6 +433,7 @@ $(document).ready(function() {
                     "AG Customer":customer,
                     "Meter Not Exist":dp,
                     "Meter Exist":dp2,
+                    "New demand points":dp3,
 					"Pano Layer":pano_layer
             }
         };
@@ -464,11 +475,12 @@ function getProperties(layer){
         layer_name=customer;
     }else if(layer=='dp2'){
         layer_name=dp2;
+    }else if(layer=='dp3'){
+        layer_name=dp3;
     } else{
-
         layer_name=dp;
     }
-
+    map.off('click');
     map.on('click', function(e) {
         map.off('click');
 
@@ -517,6 +529,11 @@ function getProperties(layer){
                         cldp=L.geoJson({ "type": "Point", "coordinates": [data.features[0].properties.X, data.features[0].properties.Y] }).addTo(map);
 
                     }
+                    else if(layer=='dp3'){
+                        $('#tdl8').val(data.features[0].properties.equipment);
+                        cldp=L.geoJson({ "type": "Point", "coordinates": [data.features[0].geometry.coordinates[0], data.features[0].geometry.coordinates[1]] }).addTo(map);
+
+                    }
                 
                     else{
                            
@@ -539,7 +556,7 @@ function getProperties(layer){
                     // console.log(data)
 
                 }
-
+                activeSelectedLayerPano();
             }
         });
 

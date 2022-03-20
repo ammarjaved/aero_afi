@@ -88,7 +88,8 @@ else {
 			<span id="nl1" class="pull-right toggle-sidebar-left"><i class="glyphicon glyphicon-chevron-left sidegl"></i></span></h4></nobr>
 			<hr>
 			<button class="btn btn-primary block" onclick="getProperties('dp')">Demand Point No Details </button>
-            			<button class="btn btn-primary block" onclick="getProperties('dp2')">Demand Point with Details </button>
+            <button class="btn btn-primary block" onclick="getProperties('dp2')">Demand Point with Details </button>
+            <button class="btn btn-primary block" onclick="getProperties('dp3')">Demand Point New </button>
 
             <div id="search-bar" class="row">
                 <input type="text" style="margin-bottom: 8px;margin-left: 10px;padding: 6px;border: none;font-size: 15px;border-radius: 10px;box-shadow: 0 2px 5px #ff7c7c, 0 0 0;" id="search_did" name="search_did" placeholder="Search Device id" class="typeahead1">

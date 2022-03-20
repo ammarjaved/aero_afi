@@ -1,7 +1,7 @@
 <?php
 class Connection
 {
-   public $hostname = 'localhost';
+   public $hostname = '121.121.232.54';
     public $database    = 'afi';
     public $username     = 'postgres';
     public $password     = 'Admin123';
